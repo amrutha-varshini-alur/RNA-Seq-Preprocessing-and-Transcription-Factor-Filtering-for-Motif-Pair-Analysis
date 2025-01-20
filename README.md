@@ -6,26 +6,22 @@ This script, rna_seq_tf_filtering.py, is designed to facilitate preprocessing st
 The pipeline includes the following steps:
 
 1. **Loading and Cleaning Input Files**
-
 * Handles tab- or comma-delimited RNA-Seq data files.
 * Cleans gene IDs by removing version numbers (everything after '.').
 * Saves the cleaned file for downstream processing.
 
 2. **Mapping Ensembl IDs to Gene Symbols**
-
 * Uses Ensembl's REST API to map Ensembl IDs to their respective gene symbols.
 * Fallback mechanism to handle errors or unmapped IDs, assigning them as "Unknown."
 * Outputs a file with mapped gene symbols.
 
 3. **Merging and Filtering TPM Datasets**
-
 * Merges TPM (Transcripts Per Million) data from two cell lines (e.g., HUVEC and IMR90).
 * Filters out genes with non-expressive or low-expression values.
 * Calculates the absolute log fold change between TPM values.
 * Outputs both filtered and sorted datasets.
 
 4. **Filtering TF Data**
-
 * Filters a transcription factor dataset to include only the top 75 genes based on absolute log fold change.
 * Saves the filtered TF dataset for motif analysis.
 
@@ -100,7 +96,6 @@ python motif_pair_preprocessing.py --input_file <path_to_input_file> \ <br>
 ## Outputs
 
 The script generates the following files:
-
 1. Cleaned RNA-Seq File: Processed version of the input file with cleaned gene_id.
 2. Gene Symbol Mapped File: RNA-Seq data with an additional column for gene_symbol.
 3. Merged TPM Dataset: Combined HUVEC and IMR90 TPM data.
